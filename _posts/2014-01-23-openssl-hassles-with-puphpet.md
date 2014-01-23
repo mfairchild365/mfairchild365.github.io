@@ -69,6 +69,39 @@ $client = \SimpleCAS::client($protocol);
 
 If anyone knows of a better fix, let me know!
 
+
+#sidenotes
+
+While investigating this problem, I discovered the following interesting things.
+
+To use openssl to verify a connection:
+```
+openssl s_client -connect www.google.com:443 -CApath /etc/ssl/certs
+```
+
+This fails if you do not specify a `CApath`
+```
+openssl s_client -connect www.google.com:443
+```
+
+Interestingly enough, it passes if you include a bogus `CApath`.  Which implies that openssl will only include the default `CApath` if you specify ANY `CApath`
+```
+openssl s_client -connect www.google.com:443 -CApath bogus
+```
+
+To find out where your openssl configuration file is you can look at the output of strace and search for .cnf
+```
+strace -o out.txt openssl s_client -connect www.google.com:443
+cat out.txt | grep ".cnf"
+```
+
+To find the default install path for openssl, use
+```
+openssl version -d
+```
+
+This will output something like `/usr/lib/ssl`.  The certs directory for `capath` would be `/usr/lib/ssl/certs`.  On my ubuntu install, `/usr/lib/ssl/certs` was a symlink for `/etc/ssl/certs`
+
 sources
 * [https://wiki.php.net/rfc/tls-peer-verification](https://wiki.php.net/rfc/tls-peer-verification)
 * [http://www.serverphorums.com/read.php?7,569662](http://www.serverphorums.com/read.php?7,569662)
