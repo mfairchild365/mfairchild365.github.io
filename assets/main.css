@@ -8,6 +8,10 @@ main, nav {
     margin-right: auto;
 }
 
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
+    color: #000;
+}
+
 .post-full {
     /* boost the font size a bit to put an emphasis on content and make it easier to read */
     font-size: 1.25em;
