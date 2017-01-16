@@ -9,7 +9,7 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : mfairchild365
-tagline: php
+
 author :
   name : Michael Fairchild
   email : mfairchild@unl.edu
