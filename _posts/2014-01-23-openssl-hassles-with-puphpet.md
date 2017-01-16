@@ -9,6 +9,7 @@ tags: [openssl, puphpet]
 Over the past few days I have been working on setting up Vagrant for a project of mine.  Our team works on many projects and we are in the process of rolling out a new template to over 22 of them.  We have some new designers that are tasked with converting these projects, so I thought it would be great to get Vagrant set up so that all they would have to do is `vagrant up` to get the project up and running.
 
 I created a vagrant machine with [PuPHPet](https://puphpet.com/) using ubuntu and php 5.4, and everything seemed to be working great.  Then I tried to log in and got this error:
+
 ```
 Unable to connect to ssl://*****:443. Error: stream_socket_client(): unable to connect to ssl://*****:443 (Unknown error) stream_socket_client(): Failed to enable crypto stream_socket_client(): SSL operation failed with code 1. OpenSSL Error messages: error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed
 ```
@@ -19,6 +20,7 @@ It boils down to this:
 On debian/ubuntu systems, openssl does not know where to look for certificates to verify the connection by default.  You have to manually specify the directory with the `capath` option.
 
 The means that code like this will fail:
+
 ```
 $fh = fopen('https://api.github.com/rate_limit', 'r', false, stream_context_create(array(
     'http' => array(
@@ -31,6 +33,7 @@ $fh = fopen('https://api.github.com/rate_limit', 'r', false, stream_context_crea
 ```
 
 and code like this will pass:
+
 ```
 $fh = fopen('https://api.github.com/rate_limit', 'r', false, stream_context_create(array(
     'http' => array(
@@ -51,6 +54,7 @@ It also looks like this will be fixed in php 5.6 ([source](https://wiki.php.net/
 I was using a library called [simpleCAS](https://github.com/saltybeagle/simplecas) to authenticate users.  The library uses the PEAR library [HTTP_Request2](http://pear.php.net/package/HTTP_Request2/) to send http requests.  HTTP_Request2 by default uses a php socket to make these requests.  Rather than hard coding a `capath` I decided it would be better to just use curl, which include a `capath` by default.
 
 So now my simpleCAS code looks like:
+
 ```
 $options = array(
     'hostname' => '*****',
@@ -75,27 +79,32 @@ If anyone knows of a better fix, let me know!
 While investigating this problem, I discovered the following interesting things.
 
 To use openssl to verify a connection:
+
 ```
 openssl s_client -connect www.google.com:443 -CApath /etc/ssl/certs
 ```
 
 This fails if you do not specify a `CApath`
+
 ```
 openssl s_client -connect www.google.com:443
 ```
 
 Interestingly enough, it passes if you include a bogus `CApath`.  Which implies that openssl will only include the default `CApath` if you specify ANY `CApath`
+
 ```
 openssl s_client -connect www.google.com:443 -CApath bogus
 ```
 
 To find out where your openssl configuration file is you can look at the output of strace and search for .cnf
+
 ```
 strace -o out.txt openssl s_client -connect www.google.com:443
 cat out.txt | grep ".cnf"
 ```
 
 To find the default install path for openssl, use
+
 ```
 openssl version -d
 ```

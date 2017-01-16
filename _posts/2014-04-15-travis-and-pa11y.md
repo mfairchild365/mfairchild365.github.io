@@ -30,6 +30,7 @@ The problem that I was having was that even after successfully installing `pa11y
 This was very confusing, because node and pa11y installed without error, and I could even call them from the travis `before_script` command.  But once my .phpt script tried to call the same tools, they would fail.  WHY!?  Turns out it is pyrus, the tool that I was using to run the tests.  `pyrus run-phpt` seems to clear out the environment for each .phpt test.
 
 I was able to fix this by defining the environment $path in my .phpt script:
+
 ```
 if (file_exists('/home/travis')) {
     //Set the $path for cli, so that tools can be found. (travis doesn't do this for you)
@@ -38,6 +39,7 @@ if (file_exists('/home/travis')) {
 ```
 
 And then calling pa11y like this:
+
 ```
 $json = exec('node_modules/.bin/pa11y -r json http://localhost/examples/example.shtml');
 ```
@@ -46,6 +48,7 @@ $json = exec('node_modules/.bin/pa11y -r json http://localhost/examples/example.
 #sidenotes
 
 In case you are wondering, this is my .travis.yaml:
+
 ```
 language: php
 php:
