@@ -2,8 +2,12 @@
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:year/:month/:day/:title 
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-pygments: true
+gems:
+   - jekyll-mentions
+   - jemoji
+   - jekyll-redirect-from
+   - jekyll-sitemap
+   - jekyll-feed
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
@@ -27,5 +31,4 @@ author :
 #
 production_url : https://mfairchild365.github.io
 
-baseurl : '/
-'
+baseurl : '/'
