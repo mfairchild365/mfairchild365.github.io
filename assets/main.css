@@ -1,5 +1,14 @@
+html {
+    font-size: 100%;
+}
+
 main, nav {
     max-width: 60em;
     margin-left: auto;
     margin-right: auto;
+}
+
+.post-full {
+    /* boost the font size a bit to put an emphasis on content and make it easier to read */
+    font-size: 1.25em;
 }
