@@ -54,11 +54,11 @@ UNLchat is an online visitor chat system that supports both email conversations 
 
 One of my first projects was to maintain an existing web application, passel. This is an eLibrary, housing lessons, animations, quizzes and even moodle courses and is used internally. In 2016, I had the opportunity to make a new version of the outdated system, which will hopefully be put into production in 2017.
 
-## MediaHub
+### MediaHub
 
 [MediaHub](https://mediahub.unl.edu/) is another project that I have had a hand in. The application hosts both video and audio used on UNL websites so that the content is available regardless of where the user is located (there are several counties that block youtube for example). The system also sports captioning for $1/min and searchable transcripts.
 
 
-### My Education
+## My Education
 
 This might come as a little bit of a surprise. I have an Associates Degree in Computer Information Technology (web programming) from South East Community College (SCC) in Lincoln Nebraska. I don't want to belittle that degree, because I'm a firm believer that community college is an vital part of education and is vastly undervalued when it comes to computer sciences. My educational career in higher education began with me attending UNL in 2008 and quickly running out of money to finish my education. I transferred SCC, got my associates, and am now continuing my education at UNL in Criminal Justice (while also working there full time). Why Criminal Justice? Because it is an important part of our society, and I want to learn more about it. Do I need a better reason? No.
