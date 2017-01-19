@@ -37,6 +37,8 @@ At the time, I was only familiar with `accname-aam` standard and thought to myse
 
 So what exactly is the problem here (in reference to the example HTML above)? Per the WCAG standard, a link (`<a href>`) must have an accessible name. However, the [html-aam standard has a specific algorithm for determining the accessible name of a `<figure>`](https://www.w3.org/TR/html-aam-1.0/#h-figure-element-accessible-name-computation). That algorithm basically says that a `<figure>` does not have an accessible name if it does not have one of an `aria-label` attribute, an `aria-labelledby` attribute, a `<figcaption>` child element, or a `title` attribute (which should always be avoided). The above example has none of those.
 
+It is important to mention that *this case is not obvious* from just reading the HTML, WCAG, and WAI-ARIA standards. As a developer, you *have to also be familiar with the aam standards* to avoid situations like these, which is just one reason why automated accessibility tools such as axe-core are so valuable.
+
 I'd also like to take a moment to thank deque for open sourcing their axe-core library. Being able to dive into their code to determine exactly why something was marked as an error is extremely helpful in learning all of the intricacies related to web accessibility. 
 
 The next steps for me will be to actually dive into each of these standards and read them from start to finish.
