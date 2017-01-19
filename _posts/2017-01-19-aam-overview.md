@@ -21,7 +21,7 @@ The other day, I was trying to figure out how exactly the accessibility tree is 
 
 * [CORE-AAM](https://www.w3.org/TR/core-aam-1.1/) (the base AAM standard, abstract and applies across multiple technologies such as HTML, JS, and CSS)
 * [ACCNAME-AAM](https://www.w3.org/TR/accname-aam-1.1/) (extends CORE-AAM, has a better defined algorithm and notability includes more specific technologies such as CSS's `:before` and `:after` psudo classes)
-* [HTML-AAM](https://www.w3.org/TR/html-aam-1.0/) (extends both CORE-AAM and ACCNAME-AAM, and is html5.1 specific, which defines specific algorithms for specific HTML elements, such as `<figure>`)
+* [HTML-AAM](https://www.w3.org/TR/html-aam-1.0/) (extends both CORE-AAM and ACCNAME-AAM, and is HTML specific, which defines specific algorithms for specific HTML elements, such as `<figure>`)
 
 Why did I start to dive into these standards? The other day, someone asked me why [axe-core](https://github.com/dequelabs/axe-core) was returning an empty name for a piece of HTML like this:
 
