@@ -26,11 +26,16 @@ The other day, I was trying to figure out how exactly the accessibility tree is 
 Why did I start to dive into these standards? The other day, someone asked me why [axe-core](https://github.com/dequelabs/axe-core) was returning an empty name for a piece of HTML like this:
 
 ```
-<figure>
-  <img src="#" alt="this is the alt text">
-</figure>
+<a href="the-url">
+  <figure>
+    <img src="#" alt="this is the alt text">
+  </figure>
+</a>
 ```
+
 At the time, I was only familiar with `accname-aam` standard and thought to myself, 'well thats weird, it should still return the `<img>` alt text'. After diving into the axe-core code, I discovered specific rules for specific HTML elements, which led me to the `html-aam` standard. So if you are just starting out and need a quick reference, the `html-aam` standard is probably the best place to start, and then work backwards to the `core-aam` standard.
+
+So what exactly is the problem here (in reference to the example HTML above)? Per the WCAG standard, a link (`<a href>`) must have an accessible name. However, the [html-aam standard has a specific algorithm for determining the accessible name of a `<figure>`](https://www.w3.org/TR/html-aam-1.0/#h-figure-element-accessible-name-computation). That algorithm basically says that a `<figure>` does not have an accessible name if it does not have one of an `aria-label` attribute, an `aria-labelledby` attribute, a `<figcaption>` child element, or a `title` attribute (which should always be avoided). The above example has none of those.
 
 I'd also like to take a moment to thank deque for open sourcing their axe-core library. Being able to dive into their code to determine exactly why something was marked as an error is extremely helpful in learning all of the intricacies related to web accessibility. 
 
