@@ -2,6 +2,7 @@
 layout: post
 title: "Overview of Accessibility API Mappings"
 description: ""
+comments: true
 ---
 
 Before I start, I should mention that I wrote this post in an effort to help me understand and learn about these accessibility standards from a high-level perspective. So what I say may not be 100% accurate, but I'm pretty confident in it.

@@ -2,6 +2,7 @@
 layout: post
 title: "The Fairchild Image Factory (discord bot)"
 description: ""
+comments: true
 ---
 
 I've always been an avid gamer. I vividly remember LAN parties in high school and late night binging sessions on games like Fallout 3 and Skyrim. It was an escape for me, and boy was it fun. Several years ago, probably around 2010, my friends and I had a Skype group chat where we talked about games, life, and dank memes. Then, once Skype went down hill we moved to a mumble server for voice chat and facebook for text chat. Then last year, we all jumped on board the [https://discordapp.com/](discord) hype train.
