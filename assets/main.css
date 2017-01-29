@@ -16,3 +16,8 @@ main, nav {
     /* boost the font size a bit to put an emphasis on content and make it easier to read */
     font-size: 1.25em;
 }
+
+.post-full th, .post-full td {
+    border: 1px solid black;
+    padding: .25em;
+}
