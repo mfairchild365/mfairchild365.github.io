@@ -27,7 +27,7 @@ comments: true
 >
 > From the repo’s surcease of sorrow-sorrow from axe-core
 >
-> For the rare and radiant browser whom the angels named chromium
+> For the rare and radiant browser whom the angels named Chromium
 >
 > Headless here for evermore
 >
@@ -41,11 +41,11 @@ The other month, I was working on integrating the automated accessibility tool [
  
 So, we switched to a headless browser called [nightmarejs](https://github.com/segmentio/nightmare) which is based on Chromium, and the problem was fixed. I put together a proof of concept for how axe-core works with nightmarejs in my [the axe nightmare repository](https://github.com/mfairchild365/the-axe-nightmare/). You will also be able to find details on how to install nightmarejs on a CentOS server and run it on Travis-CI.
 
-I learned a lot about headless browsers and automated testing from that expierence, and I thought I'd share a bit of it.
+I learned a lot about headless browsers and automated testing from that experience, and I thought I'd share a bit of it.
 
 ## Methods of testing websites
 
-Using a headless browser that is based on a modern rendering engine is **essential** for accurate testing. To explain why that is, lets look at some different method of testing websites, in the specific context of accessibility testing.
+Using a headless browser that is based on a modern rendering engine is **essential** for accurate testing. To explain why that is, lets look at some different methods of testing websites, in the specific context of accessibility testing.
 
 ### Option 1: Traverse the HTML source
 
@@ -61,9 +61,9 @@ As described above, I believe this is the best approach. It is important to real
 
 ### Option 4: Real browsers
 
-[Selenium](http://www.seleniumhq.org/) is a tool which lets you automate real browsers, including Chrome, Firefox, Internet Explorer, and Safari. With this method you have the highest confidence that you are testing what an actual user would be seeing. However, Selenium also has its disadvantages, which I believe make it not the best choice for quick automated testing. It is a pain to configure and set up (however tools do exist to make it easier such as [webdriver.io](http://webdriver.io/)). Additionally, this method can also hard to deploy on continuous testing environments such as [Travis-CI](https://travis-ci.org/). Moreover, I think the time spent configuring and setting up multiple browsers to be tested with selenium would be better spent actually conducing manual accessibility audits, which you should be doing anyway. That is a story for another time.
+[Selenium](http://www.seleniumhq.org/) is a tool which lets you automate real browsers, including Chrome, Firefox, Internet Explorer, and Safari. With this method you have the highest confidence that you are testing what an actual user would be seeing. However, Selenium also has its disadvantages, which I believe make it not the best choice for quick automated testing. It is a pain to configure and set up (however tools do exist to make it easier such as [webdriver.io](http://webdriver.io/)). Additionally, this method can also be hard to deploy on continuous testing environments such as [Travis-CI](https://travis-ci.org/). Moreover, I think the time spent configuring and setting up multiple browsers to be tested with Selenium would be better spent actually conducting manual accessibility audits, which you should be doing anyway. That is a story for another time.
 
-It is worth noting that [webdriver.io](http://webdriver.io/) does also [allow testing with phantomjs](http://webdriver.io/guide/services/phantomjs.html). So, in theory this would be a good method of automated testing which would also allow you to quickly test non-headless browsers with the same tests. However, this wound't work in my situation, because I needed to use a more modern headless browser than phantomjs.
+It is worth noting that [webdriver.io](http://webdriver.io/) does also [allow testing with phantomjs](http://webdriver.io/guide/services/phantomjs.html). So, in theory this would be a good method of automated testing which would also allow you to quickly test non-headless browsers with the same tests. However, this wouldn't work in my situation, because I needed to use a more modern headless browser than phantomjs.
  
 ## What headless browsers are available?
 
