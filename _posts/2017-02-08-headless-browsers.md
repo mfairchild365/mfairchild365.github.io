@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Spooky Story of Headless Browsers"
+title: "Spooky Browsers"
 description: ""
 comments: true
 ---
