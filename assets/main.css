@@ -8,6 +8,10 @@ main, nav {
     margin-right: auto;
 }
 
+main:focus {
+    outline: 0;
+}
+
 .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
     color: #000;
 }
