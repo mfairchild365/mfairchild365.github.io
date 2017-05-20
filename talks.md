@@ -7,7 +7,9 @@ This is a list of talks with links to the slides. I won't list all of my talks, 
 
 ## 2017
 
-* Accessible buttons (WIP)
+* [Sow, how exactly does a screen reader know how to read my code anyway?](http://bit.ly/how-sr-reads-ur-code) - given at Nebraska.Code()
+* [Accessible buttons](http://bit.ly/2rD9OCv) - given at UNL
+
 
 ## 2016 and older
 
