@@ -7,7 +7,7 @@ comments: true
 
 This is a great question, and one that I am asked frequently. The problem is, there isn't a simple answer. You really need to do two things; automated and manual testing. But what do those look like?
 
-Before reading this, it might be helpful to read my post on the [who, when, and what](2017/05/23/when-when-what-of-a11y-testing) of accessibility testing.
+Before reading this, it might be helpful to read my post on the [who, when, and what](/2017/05/23/who-when-what-of-a11y-testing) of accessibility testing.
 
 ## Automated testing
 
