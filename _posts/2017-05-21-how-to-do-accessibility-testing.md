@@ -7,6 +7,8 @@ comments: true
 
 This is a great question, and one that I am asked frequently. The problem is, there isn't a simple answer. You really need to do two things; automated and manual testing. But what do those look like?
 
+Before reading this, it might be helpful to read my post on the [who, when, and what](2017/05/23/when-when-what-of-a11y-testing) of accessibility testing.
+
 ## Automated testing
 
 Automated accessibility testing is key for any developer. With automated testing, you can catch **common and objective problems** quickly before your code is ever released. I've worked on several automated accessibility testing tools, and maintain a system that audits hundreds of sites, so I feel qualified to talk about this subject.
