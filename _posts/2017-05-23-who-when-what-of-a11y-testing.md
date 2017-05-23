@@ -21,3 +21,6 @@ What should be tested? Well, that is simple. Any code that will be in production
 
 The 'how' deserves more details, so check out my other post on [how to do accessibility testing](/2017/05/21/how-to-do-accessibility-testing).
 
+## Why
+
+The 'why' also deserves more details, so check out my other post on the [why of accessibility testing](/2017/05/23/why-accessibility-testing).
