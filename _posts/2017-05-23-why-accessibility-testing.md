@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Why should I care about accessibility?"
+title: "Why should you care about accessibility?"
 description: ""
 comments: true
 ---

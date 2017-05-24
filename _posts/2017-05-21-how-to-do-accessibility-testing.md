@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How should I do accessibility testing?"
+title: "How should you do accessibility testing?"
 description: ""
 comments: true
 ---
