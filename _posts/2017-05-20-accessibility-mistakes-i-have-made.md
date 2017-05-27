@@ -7,11 +7,11 @@ comments: true
 
 Many people think I'm an 'expert' in accessibility, but the fact is, I make mistakes all the time. This is a list of just some of those mistakes.
 
-Okay, why am I *really* writing this? For three reasons. The first reason is underline the fact that we are all just human and we all make mistakes. My second reason is to help foster an environment where developers feel free to admit mistakes, so that they can seek help, and improve. My third reason is to educate others so that they are less likely to make the same mistakes.
+Okay, why am I *really* writing this? For three reasons. The first reason is to underline the fact that we are all just human and we all make mistakes. My second reason is to help foster an environment where developers feel free to admit mistakes, so that they can seek help, and improve. My third reason is to educate others so that they are less likely to make the same mistakes.
 
 ## Skipnav (and not actually testing)
 
-This one sounds like a no-brainer, but can actually be kind of complicated. A 'skipnav' is a link placed at the very top of the page, which points to the main content area of the page. Thus when a keyboard only user activates it, they skip the site header which can otherwise be very repetitive. We had a 'skipnav' on a site for a long time, and I just assumed that it worked because it was an internal link to the main content area, and clicking on it caused the browser to scroll to the target. However, after testing it with a keyboard, it was obvious that focus was not actually being moved to the main content, instead the browser was just visually scrolling to the main content. Any keyboard only user would still have to tab though 20 or more links to get to the most important part of the page.
+This one sounds like a no-brainer, but can actually be kind of complicated. A 'skipnav' is a link placed at the very top of the page that points to the main content area of the page. Thus when a keyboard-only user activates it, they skip the site header which can otherwise be very repetitive. We had a 'skipnav' on a site for a long time, and I just assumed that it worked because it was an internal link to the main content area, and clicking on it caused the browser to scroll to the target. However, after testing it with a keyboard, it was obvious that focus was not actually being moved to the main content, instead the browser was just visually scrolling to the main content. Any keyboard-only user would still have to tab through 20 or more links to get to the most important part of the page.
 
 This was due to browser bugs, which [are being addressed](https://bugs.chromium.org/p/chromium/issues/detail?id=37721). My solution involves putting a `tabindex="-1"` attribute on the main content area (which says 'this element is pragmatically focusable, but shouldn't be in the tab order) and calling `document.querySelector('main').focus();` when the skipnav is activated. We will probably continue with that solution until users have had a chance to update their browsers. 
 
@@ -22,9 +22,9 @@ In case you are not familiar with skipnav, here are some helpful resources:
 
 ## Focus outlines
 
-Focus outlines are vital because they indicate what is currently focused. Without this information, a keyboard only user might loose track of where they are on a page. Imagine a list of 10 links, none of which have a focus outline. Now imagine trying to tab though that list and activate the 7th. It will be pretty hard if you can't tell where you are. I've often found myself working on a project when I discover an element has somehow lost its focus outline. Often this is due to the collaborative nature of many people working on a site, or it was an unexpected side effect of something else I have changed.
+Focus outlines are vital because they indicate what is currently focused. Without this information, a keyboard-only user might lose track of where they are on a page. Imagine a list of 10 links, none of which have a focus outline. Now imagine trying to tab though that list and activate the 7th. It will be pretty hard if you can't tell where you are. I've often found myself working on a project when I discover an element has somehow lost its focus outline. Often this is due to the collaborative nature of many people working on a site, or it was an unexpected side effect of something else I have changed.
 
-I'm also guilty of applying an outline to *everything* that is focusable. Including elements that don't natively support focus (see the previous skipnav section as an example). In some cases, it isn't important to display the focus outline. Long story short: everything has edge cases and it can hurt to assume otherwise.
+I'm also guilty of applying an outline to *everything* that is focusable, including elements that don't natively support focus (see the previous skipnav section as an example). In some cases, it isn't important to display the focus outline. Long story short: everything has edge cases and it can hurt to assume otherwise.
 
 ## Attribute over-use
 
@@ -32,7 +32,7 @@ Before I knew any better, I often put attributes on elements just because I saw 
 
 ## Focus management
 
-Focus management can be hard. Where do I send the user after the click the button to open a model? Where do I send them after the model closes? In some cases, I did not send focus anywhere because I was not even thinking about focus management. In other cases, I would send focus to the wrong element, thinking I was doing the right thing but actually making the experience worse.
+Focus management can be hard. Where do I send the user after they click the button to open a model? Where do I send them after the model closes? In some cases, I did not send focus anywhere because I was not even thinking about focus management. In other cases, I would send focus to the wrong element, thinking I was doing the right thing but actually making the experience worse.
 
 I quickly learned to rely on the [aria authoring practices](https://www.w3.org/TR/wai-aria-practices/) to decide when and how to handle focus.
 
@@ -46,7 +46,7 @@ I'm convinced that when most people hear 'accessibility', they immediately jump 
 
 ## Forgetting that I'm not an expert
 
-This one is key. Sometimes, I find myself thinking 'well it is obvious x is the solution because x has worked in the past'. Well no, that might not be the case. Our industry is constantly changing and moving forward. Just because something was true yesterday, does not mean it is true today. It might not work anymore, or there might be a better way of doing it. Because of that, I never let myself think I'm an expert, and I always try to stay on top of what is changing.
+This one is key. Sometimes, I find myself thinking 'well it is obvious X is the solution because X has worked in the past'. Well no, that might not be the case. Our industry is constantly changing and moving forward. Just because something was true yesterday, does not mean it is true today. It might not work anymore, or there might be a better way of doing it. Because of that, I never let myself think I'm an expert, and I always try to stay on top of what is changing.
 
 ## Forgetting to test
 
