@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How should I do accessibility testing?"
+title: "How should you do accessibility testing?"
 description: ""
 comments: true
 ---
@@ -15,13 +15,13 @@ Automated accessibility testing is key for any developer. With automated testing
 
 What you should look for in an automated testing tool:
 
-* It must test against an established standard (such as WCAG 2.0), and not some jumble of standards that the creator thinks is best
-* It must have unit tests to back up the tests that it implements
-* It must be under active development and have an established community (look for it on github if you are not sure)
+* It must test against an established standard (such as WCAG 2.0), and not some jumble of standards that the creator thinks is best.
+* It must have unit tests to back up the tests that it implements.
+* It must be under active development and have an established community (look for it on github if you are not sure).
 * It must work on a DOM, with JavaScript and CSS taken into account. Assistive Technology does this, so your testing tool should too.
-* It should help you fix problems rather than just report problems (education is key)
-* It should be customizable to meet your unique needs
-* It must have zero false positives (false positives only waste your time)
+* It should help you fix problems rather than just report problems (education is key).
+* It should be customizable to meet your unique needs.
+* It must have zero false positives (false positives only waste your time).
 * It must be able to be integrated into your development workflow, so that problems are caught before they reach production.
 
 That being said, what tool do I recommend? The answer is [axe-core](https://github.com/dequelabs/axe-core). Axe-core is open source, free, and meets every point I just described. If you would like to learn more, this is [a great video introduction to axe-core](https://www.youtube.com/watch?v=jC_7NnRdYb0&index=3&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g).
@@ -41,14 +41,14 @@ This is a partial list of what automated testing can't help you with:
 
 To drive the point home. I have found my projects passing automated testing with flying colors, only to discover later that a screen reader choked on all of it.
 
-So, how do you do manual test? Well, you can use automated testing to inform your manual tests (review items flagged as notices or for manual review). But really, the best thing you can do is to actually test your code in a real screen reader. You wouldn't publish content without testing it in a real browser first. So why would you publish content without testing it a real screen reader first?
+So, how do you do manual testing? Well, you can use automated testing to inform your manual tests (review items flagged as notices or for manual review). But really, the best thing you can do is actually test your code in a real screen reader. You wouldn't publish content without testing it in a real browser first. So why would you publish content without testing it a real screen reader first?
 
-Let's get this out of the way. Learning to use a screen reader as a developer can be a tedious task, with a steep learning curve. But, once you get the fundamentals, it will be worth while.
+Let's get this out of the way. Learning to use a screen reader as a developer can be a tedious task, with a steep learning curve. But, once you get the fundamentals, it will be worthwhile.
 
 I recommend one of two screen readers, depending on your situation:
 
 * VoiceOver for MacOS or iOS
-* NVDA for windows
+* NVDA for Windows
 
 Both of these are free, and can be configured to help you as a sighted developer learn how to use a screen reader. I found it extremely useful to use what I called 'training wheels' when first using screen readers. You don't need any fancy hardware, and you don't need to blindfold yourself. Those two training wheels are:
 
@@ -59,7 +59,7 @@ Note that these are not just training wheels. Not everyone who uses a screen rea
 
 ### General information about screen readers
 
-* Screen readers read the semantics of the page in addition to the text that is displayed. The semantics help convey the purpose of elements, as well as the potential effects of interacting with those elements. For example, a button is different than a link, in that a button activates dynamic content while a link will open a new url. This extra information can be overwhelming at first, but it is fundamental. 
+* Screen readers read the semantics of the page in addition to the text that is displayed. The semantics help convey the purpose of elements, as well as the potential effects of interacting with those elements. For example, a button is different than a link, in that a button activates dynamic content while a link will open a new URL. This extra information can be overwhelming at first, but it is fundamental. 
 * Screen readers read the page in DOM order, which might not reflect visual order. This can be confusing, so watch out for it.
 * You can tab though interactive elements on the page and activate controls with space/enter.
 * Screen readers also have their own set of controls for interacting with the page and jumping to certain elements. You don't need to know all of these controls at first. Take it slow.
@@ -75,7 +75,7 @@ To learn more:
 
 ### NVDA
 
-NVDA does not support these training wheels out of the box, you can can turn them on.
+NVDA does not support these training wheels out of the box, but you can turn them on.
 
 1. Turn on the outline by downloading and installing the [Focus outline plugin](https://addons.nvda-project.org/addons/focusHighlight.en.html)
 2. Turn on the Speech viewer by going to the NVDA in the system tray, clicking on Tools and then selecting Speech viewer.
