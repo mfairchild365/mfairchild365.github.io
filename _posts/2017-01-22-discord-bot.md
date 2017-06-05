@@ -5,11 +5,11 @@ description: ""
 comments: true
 ---
 
-I've always been an avid gamer. I vividly remember LAN parties in high school and late night binging sessions on games like Fallout 3 and Skyrim. It was an escape for me, and boy was it fun. Several years ago, probably around 2010, my friends and I had a Skype group chat where we talked about games, life, and dank memes. Then, once Skype went down hill we moved to a mumble server for voice chat and facebook for text chat. Then last year, we all jumped on board the [discord](https://discordapp.com/) hype train.
+I've always been an avid gamer. I vividly remember LAN parties in high school and late night binging sessions on games like Fallout 3 and Skyrim. It was an escape for me, and boy was it fun. Several years ago, probably around 2010, my friends and I had a Skype group chat where we talked about games, life, and dank memes. Then, once Skype went down hill we moved to a mumble server for voice chat and facebook for text chat. Then last year, we all jumped on board the [Discord](https://discordapp.com/) hype train.
 
 Now that my life involves more "adulting", I have less time to play video games. Don't get me wrong, I still play them, but I just have less time. I've also found that more of my free time goes to side projects where I make silly software. I could say that these projects are an effort to improve and hone my skills as a developer, but I think it is just because I enjoy programming.
 
-Needless to say, I was very excited to find out that discord had some wonderful APIs for creating bots. I immediately started to brainstorm ideas for a bot and landed on an idea that I thought would be very simple to implement. Thus, I created the Fairchild Image Factory bot, known on github as [discord image bot](https://github.com/mfairchild365/discord-image-bot). 
+Needless to say, I was very excited to find out that discord had some wonderful APIs for creating bots. I immediately started to brainstorm ideas for a bot and landed on an idea that I thought would be very simple to implement. Thus, I created the Fairchild Image Factory bot, known on GitHub as [discord image bot](https://github.com/mfairchild365/discord-image-bot). 
 
 When I first added it to our server, I quickly realized that I had to put rate limits on it. It was much too popular.
 
@@ -37,4 +37,4 @@ Well, as I said, it is just a simple script that searches some common image host
 * It is a PHP script
 * It uses the [DiscordPHP](https://github.com/teamreflex/DiscordPHP) library
 * Because the discord API is websocket based, a constant connection needs to be established between the bot and discord. This means that the script has to run as a daemon, which isn't very common for PHP. To accomplish this, I used the [pm2 process manager](http://pm2.keymetrics.io/).
-* See the [bot's github repository](https://github.com/mfairchild365/discord-image-bot) for more details.
+* See the [bot's GitHUb repository](https://github.com/mfairchild365/discord-image-bot) for more details.

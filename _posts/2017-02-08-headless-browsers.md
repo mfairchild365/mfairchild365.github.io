@@ -13,7 +13,7 @@ comments: true
 >
 > As of a drive gently spinning, spinning on my server’s motherboard
 >
-> “Tis some process,” I muttered, “taxing at my server’s motherboard-”
+> “'Tis some process,” I muttered, “taxing at my server’s motherboard-”
 >
 > “Only this and nothing more.”
 >
@@ -37,9 +37,9 @@ Headless browsers have a bit of a storied and spooky history. Okay, not really. 
 
 What is a headless browser you ask? Well, a headless browser is a web browser that does not have any UI, it just runs as a background process. How could a headless browser ever be useful? Well, there are many reasons. Personally, I use them for automated testing (accessibility and other things).
 
-The other month, I was working on integrating the automated accessibility tool [axe-core](https://github.com/dequelabs/axe-core) into our website auditing tool. At the time we were using the industry heavy weight headless browser [phantomjs](http://phantomjs.org/). It served us well, but we started to notice some pages taking an excessive amount of time to scan and stalling the scan queue. It was taking more than half an hour for axe-core to scan some pages, even with recent performance improvements in axe-core! The issue was that axe-core relies on a browser-level function `elementsFromPoint()` which phantomjs is missing.
+The other month, I was working on integrating the automated accessibility tool [axe-core](https://github.com/dequelabs/axe-core) into our website auditing tool. At the time we were using the industry heavy weight headless browser [Phantomjs](http://phantomjs.org/). It served us well, but we started to notice some pages taking an excessive amount of time to scan and stalling the scan queue. It was taking more than half an hour for axe-core to scan some pages, even with recent performance improvements in axe-core! The issue was that axe-core relies on a browser-level function `elementsFromPoint()` which Phantomjs is missing.
  
-So, we switched to a headless browser called [nightmarejs](https://github.com/segmentio/nightmare) which is based on Chromium, and the problem was fixed. I put together a proof of concept for how axe-core works with nightmarejs in my [the axe nightmare repository](https://github.com/mfairchild365/the-axe-nightmare/). You will also be able to find details on how to install nightmarejs on a CentOS server and run it on Travis-CI.
+So, we switched to a headless browser called [Nightmarejs](https://github.com/segmentio/nightmare) which is based on Chromium, and the problem was fixed. I put together a proof of concept for how axe-core works with Nightmarejs in my [the Axe Nightmare repository](https://github.com/mfairchild365/the-axe-nightmare/). You will also be able to find details on how to install Nightmarejs on a CentOS server and run it on Travis-CI.
 
 I learned a lot about headless browsers and automated testing from that experience, and I thought I'd share a bit of it.
 
@@ -63,7 +63,7 @@ As described above, I believe this is the best approach. It is important to real
 
 [Selenium](http://www.seleniumhq.org/) is a tool which lets you automate real browsers, including Chrome, Firefox, Internet Explorer, and Safari. With this method you have the highest confidence that you are testing what an actual user would be seeing. However, Selenium also has its disadvantages, which I believe make it not the best choice for quick automated testing. It is a pain to configure and set up (however tools do exist to make it easier such as [webdriver.io](http://webdriver.io/)). Additionally, this method can also be hard to deploy on continuous testing environments such as [Travis-CI](https://travis-ci.org/). Moreover, I think the time spent configuring and setting up multiple browsers to be tested with Selenium would be better spent actually conducting manual accessibility audits, which you should be doing anyway. That is a story for another time.
 
-It is worth noting that [webdriver.io](http://webdriver.io/) does also [allow testing with phantomjs](http://webdriver.io/guide/services/phantomjs.html). So, in theory this would be a good method of automated testing which would also allow you to quickly test non-headless browsers with the same tests. However, this wouldn't work in my situation, because I needed to use a more modern headless browser than phantomjs.
+It is worth noting that [webdriver.io](http://webdriver.io/) does also [allow testing with Phantomjs](http://webdriver.io/guide/services/phantomjs.html). So, in theory this would be a good method of automated testing which would also allow you to quickly test non-headless browsers with the same tests. However, this wouldn't work in my situation, because I needed to use a more modern headless browser than Phantomjs.
  
 ## What headless browsers are available?
 
@@ -71,14 +71,14 @@ There are quite a few headless browsers out there, each of which have their own 
 
 | Browser | Rendering Engine | API Language |
 | --- | --- | --- |
-| [phantomjs](http://phantomjs.org/) | WebKit (Safari) | JavaScript |
-| [nightmarejs](https://github.com/segmentio/nightmare) | Chromium via Electron (Chrome) | nodejs |
-| [slimerjs](https://slimerjs.org/) | Gecko (firefox) | JavaScript |
-| [Ghost.py](http://jeanphix.me/Ghost.py/) | WebKit (Safari) | python |
-| [zombie](https://github.com/assaf/zombie) | custom | nodejs
+| [Phantomjs](http://phantomjs.org/) | WebKit (Safari) | JavaScript |
+| [Nightmarejs](https://github.com/segmentio/nightmare) | Chromium via Electron (Chrome) | Nodejs |
+| [Slimerjs](https://slimerjs.org/) | Gecko (Firefox) | JavaScript |
+| [Ghost.py](http://jeanphix.me/Ghost.py/) | WebKit (Safari) | Python |
+| [Zombie](https://github.com/assaf/zombie) | custom | Nodejs
 
 
-I do want to take a moment to specifically compare nightmarejs and phantomjs. In my experience, phantomjs has several disadvantages to nightmarejs. Phantomjs is based on WebKit which has been lagging behind other rendering engines in recent years. Furthermore phantomjs is slow to adopt new versions of WebKit. And finally, phantomjs has a messy API, while nightmarejs has a cleaner api which makes it easier to create tests.
+I do want to take a moment to specifically compare Nightmarejs and Phantomjs. In my experience, Phantomjs has several disadvantages to Nightmarejs. Phantomjs is based on WebKit which has been lagging behind other rendering engines in recent years. Furthermore Phantomjs is slow to adopt new versions of WebKit. And finally, Phantomjs has a messy API, while Nightmarejs has a cleaner api which makes it easier to create tests.
   
-Welp, that is it for today. Happy coding y'all.
+Well, that is it for today. Happy coding y'all.
 

@@ -17,7 +17,7 @@ This was due to browser bugs, which [are being addressed](https://bugs.chromium.
 
 In case you are not familiar with skipnav, here are some helpful resources:
 
-* [skipnav on webaim](http://webaim.org/techniques/skipnav/)
+* [skipnav on Webaim](http://webaim.org/techniques/skipnav/)
 * [skipnav on a11yproject.org](http://a11yproject.com/posts/skip-nav-links/)
 
 ## Focus outlines
