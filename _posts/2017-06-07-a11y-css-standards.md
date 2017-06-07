@@ -18,7 +18,7 @@ The following are test cases for how screen readers handle `<span>` (inline) vs 
 </div>
 ```
 
-Result: read as two paragraphs - "Span Text (pause) Div Text"
+Result: read as two paragraphs - "Span Text (pause) Div Text". The `<span>` has the role of 'text' and the `<div>` has the role of 'group', and the text directly in the `<div>` has the role of 'text'.
 
 ## Test 2: `<span>` inside the `<div>`
 
@@ -31,7 +31,7 @@ Result: read as two paragraphs - "Span Text (pause) Div Text"
 </div>
 ```
 
-Result: read as one paragraph - "Span Text Div Text"
+Result: read as one paragraph - "Span Text Div Text". The `<div>` has a role of 'group', the `<span>` has a role of 'text', and the text directly in the `<div>` has a the role of 'text'.
 
 ## Test 3: CSS Inline
 
@@ -42,13 +42,25 @@ Result: read as one paragraph - "Span Text Div Text"
 </div>
 ```
 
-Result: read as one paragraph - "Span Text Div Text"
+Result: read as one paragraph - "Span Text Div Text". The `<span>` and `<div>` both have the role of 'text'.
+
+## Test 4: CSS Inline-block
+
+```
+<div>
+    <span>Span Text</span>
+    <div style="display:inline-block">Div Text</div>
+</div>
+```
+
+Result: read as one paragraph - "Span Text Div Text". The `<span>` and `<div>` both have the role of 'text'. (same as #3)
 
 ## Why does this happen?
 
 So, I think I understand why test 1 and test 2 do what they do. A [`div` is considered a 'group' element](https://www.w3.org/TR/html/grouping-content.html#the-div-element), while a span is not a 'group' element. Before the Screen Reader reads a new group element, it knows to pause (for example, before starting a new paragraph). You can also see this when using the Accessibility Inspector in MacOS.
 
-However, when it comes to test 3, I was a little surprised. [CSS can have an affect on screen reader output](http://w3c.github.io/aria/accname-aam/accname-aam.html#step2F.ii), but I haven't seen anything in the standards about the CSS 'display' property. CSS is supposed to have only a minimal impact on the accessibility tree.
+
+However, when it comes to test 3, I was a little surprised. [CSS can have an affect on screen reader output](http://w3c.github.io/aria/accname-aam/accname-aam.html#step2F.ii), but I haven't seen anything in the standards about the CSS 'display' property ([except for maybe display:none](https://www.w3.org/TR/accname-aam-1.1/#step2A)). CSS is supposed to have only a minimal impact on the accessibility tree.
 
 This leads me these questions:
 
