@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Web accessibility CSS standards, documentation, and expectations"
+title: "Question about web accessibility CSS standards, documentation, and expectations"
 description: ""
 comments: true
 ---
