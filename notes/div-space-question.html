@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Why does this happen?</title>
+</head>
+<body>
+<h1>Why does this happen?</h1>
+
+<p>The following are test cases for how screen readers handle span vs div content, as well as inline vs block CSS. I tested with VoiceOver and the results are shown below every test case.</p>
+
+<h2>Test 1: Span followed by a div</h2>
+
+<pre><code>&lt;div&gt;
+      &lt;span&gt;Span Text&lt;/span&gt;
+      &lt;div&gt;Div Text&lt;/div&gt;
+    &lt;/div&gt;
+    </code></pre>
+
+<div>
+    <span>Span Text</span>
+    <div>Div Text</div>
+</div>
+
+<p>Result: read as two paragraphs - "Span Text (pause) Div Text"</p>
+
+<h2>Test 2: Span inside the div</h2>
+
+<pre><code>&lt;div&gt;
+      &lt;div&gt;
+        &lt;span&gt;Span Text&lt;/span&gt;
+        Div Text
+      &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+
+<div>
+    <div>
+        <span>Span Text</span>
+        Div Text
+    </div>
+</div>
+
+<p>Result: read as one paragraph - "Span Text Div Text"</p>
+
+<h2>Test 3: CSS Inline</h2>
+
+<pre><code>&lt;div&gt;
+      &lt;span&gt;Span Text&lt;/span&gt;
+      &lt;div style=&quot;display:inline&quot;&gt;Div Text&lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+
+<div>
+    <span>Span Text</span>
+    <div style="display:inline">Div Text</div>
+</div>
+
+<p>Result: read as one paragraph - "Span Text Div Text"</p>
+
+<h2>Why?</h2>
+
+<p>So, I think I understand why test 1 and test 2 do what they do. A <a href="https://www.w3.org/TR/html/grouping-content.html#the-div-element">div is considered as 'group' element</a>, while a span is not a 'group' element. Before the Screen Reader reads a new group element, it knows to pause (for example, before starting a new paragraph). You can also see this when using the Accessibility Inspector in MacOS.</p>
+
+<p>However, when it comes to test 3, I was a little surprised. <a href="http://w3c.github.io/aria/accname-aam/accname-aam.html#step2F.ii">CSS can have an affect on screen reader output</a>, but I haven't seen anything in the standards about the CSS 'display' property.</p>
+
+<p>This leads me to two questions:</p>
+
+<ol>
+    <li>Is there a standard that describes when a screen reader should pause before continuing to another element?</li>
+    <li>Is there a standard that describes the affect that CSS's 'display' property should have on screen reader output?</li>
+</ol>
+
+</body>
+</html>
