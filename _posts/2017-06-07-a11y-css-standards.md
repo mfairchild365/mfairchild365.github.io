@@ -7,6 +7,8 @@ comments: true
 
 I was recently asked why some screen readers pause before reading the contents `<div>` elements, but not when the `<div>` has a CSS `display: inline` property.
 
+So, that begs to question, does the CSS 'display' property have an affect on accessibility api mappings?
+
 The following are test cases for how screen readers handle `<span>` (inline) vs `<div>` (block, or group) content, as well as inline vs block vs inline-block via CSS. I tested with VoiceOver and the results are shown below every test case. You can also [see these test cases rendered on my other page](/notes/div-space-question.html). The element roles were found via Accessibility Inspector tool in MacOS.
 
 ## Test 1: `<span>` followed by a `<div>`
