@@ -11,7 +11,7 @@ Before reading this, it might be helpful to read my post on the [who, when, and 
 
 ## Automated testing
 
-Automated accessibility testing is key for any developer. With automated testing, you can catch **common and objective problems** quickly before your code is ever released. I've worked on several automated accessibility testing tools, and maintain a system that audits hundreds of sites, so I feel qualified to talk about this subject.
+Automated accessibility testing is key for any developer. With automated testing, you can catch **common and objective problems** quickly before your code is ever released. Keep in mind, however, that automated testing can be very complex, and it is very easy for tools to test a rule incorrectly. So, just because it flagged something as an error, may not mean that it is *actually* an error. Similarly, something not being flagged may not mean that it is problem free. Always take your automated results with a grain of salt. That being said, automated tools excel at finding things that are *probably* problems, and thus save you time.
 
 What you should look for in an automated testing tool:
 
@@ -21,7 +21,7 @@ What you should look for in an automated testing tool:
 * It must work on a DOM, with JavaScript and CSS taken into account. Assistive Technology does this, so your testing tool should too.
 * It should help you fix problems rather than just report problems (education is key).
 * It should be customizable to meet your unique needs.
-* It must have zero false positives (false positives only waste your time).
+* It must have zero false positives (false positives only waste your time). No tool will ever have zero false positives, but the maintainers should be committed avoiding them in the first place, and fixing them when they are found.
 * It must be able to be integrated into your development workflow, so that problems are caught before they reach production.
 
 That being said, what tool do I recommend? The answer is [axe-core](https://github.com/dequelabs/axe-core). Axe-core is open source, free, and meets every point I just described. If you would like to learn more, this is [a great video introduction to axe-core](https://www.youtube.com/watch?v=jC_7NnRdYb0&index=3&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g).
@@ -84,6 +84,9 @@ To learn more:
 * [Video introduction to NVDA](https://www.youtube.com/watch?v=Jao3s_CwdRU&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g)
 * [NVDA Keyboard commands](http://webaim.org/resources/shortcuts/nvda)
 
+## Testing Frequency
+
+Do both automated an manual tests as often as possible. If you can, integrate your automated tests into your development process so that tests are automatically ran as you push code. Also strive to manually test before each major release.
 
 ## Conclusion
 
