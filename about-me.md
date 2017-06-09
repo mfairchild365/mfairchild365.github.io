@@ -21,8 +21,8 @@ I think it will be worthwhile to list some of my experience as a developer to he
 * Higher education (I work for em!)
 * Enterprise system development
 * Public speaking (also my greatest fear)
-* Drupal, Zend, Symfony, propel, twig (php frameworks and libraries)
-* JavScript (including nodejs)
+* Drupal, Zend, Symfony, propel, twig (PHP frameworks and libraries)
+* JavScript (including Node.js)
 * Leading (leading development, leading people)
 
 ### Interests in
@@ -40,7 +40,7 @@ I think it is important to list some of the projects that I have worked on in or
 
 ### SiteMaster
 
-[SiteMaster](https://github.com/UNLSiteMaster/site_master) is an auditing platform built in PHP, MySQL, and nodejs via a headless browser. While it is an open source project, [it is deployed at UNL](https://webaudit.unl.edu) and does link checking, HTML validation, Accessibility checking, and Governance checking on over 1,000 websites. This project was deployed in 2014 and is still in production.
+[SiteMaster](https://github.com/UNLSiteMaster/site_master) is an auditing platform built in PHP, MySQL, and Node.js via a headless browser. While it is an open source project, [it is deployed at UNL](https://webaudit.unl.edu) and does link checking, HTML validation, Accessibility checking, and Governance checking on over 1,000 websites. This project was deployed in 2014 and is still in production.
 
 ### UNLchat
 

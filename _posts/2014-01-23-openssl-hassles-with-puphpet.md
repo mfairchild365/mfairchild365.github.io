@@ -51,7 +51,7 @@ $fh = fopen('https://api.github.com/rate_limit', 'r', false, stream_context_crea
 Because the `capath` might be different depending on what operating system you are using, its not a good idea to hard code this in a library.
 It also looks like this will be fixed in PHP 5.6 ([source](https://wiki.php.net/rfc/tls-peer-verification))
 
-I was using a library called [simpleCAS](https://github.com/saltybeagle/simplecas) to authenticate users.  The library uses the PEAR library [HTTP_Request2](http://pear.php.net/package/HTTP_Request2/) to send http requests.  HTTP_Request2 by default uses a PHP socket to make these requests.  Rather than hard coding a `capath` I decided it would be better to just use curl, which include a `capath` by default.
+I was using a library called [simpleCAS](https://github.com/saltybeagle/simplecas) to authenticate users.  The library uses the PEAR library [HTTP_Request2](http://pear.php.net/package/HTTP_Request2/) to send HTTP requests.  HTTP_Request2 by default uses a PHP socket to make these requests.  Rather than hard coding a `capath` I decided it would be better to just use curl, which include a `capath` by default.
 
 So now my simpleCAS code looks like:
 

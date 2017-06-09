@@ -72,13 +72,13 @@ There are quite a few headless browsers out there, each of which have their own 
 | Browser | Rendering Engine | API Language |
 | --- | --- | --- |
 | [Phantomjs](http://phantomjs.org/) | WebKit (Safari) | JavaScript |
-| [Nightmarejs](https://github.com/segmentio/nightmare) | Chromium via Electron (Chrome) | Nodejs |
+| [Nightmarejs](https://github.com/segmentio/nightmare) | Chromium via Electron (Chrome) | Node.js |
 | [Slimerjs](https://slimerjs.org/) | Gecko (Firefox) | JavaScript |
 | [Ghost.py](http://jeanphix.me/Ghost.py/) | WebKit (Safari) | Python |
-| [Zombie](https://github.com/assaf/zombie) | custom | Nodejs
+| [Zombie](https://github.com/assaf/zombie) | custom | Node.js
 
 
-I do want to take a moment to specifically compare Nightmarejs and Phantomjs. In my experience, Phantomjs has several disadvantages to Nightmarejs. Phantomjs is based on WebKit which has been lagging behind other rendering engines in recent years. Furthermore Phantomjs is slow to adopt new versions of WebKit. And finally, Phantomjs has a messy API, while Nightmarejs has a cleaner api which makes it easier to create tests.
+I do want to take a moment to specifically compare Nightmarejs and Phantomjs. In my experience, Phantomjs has several disadvantages to Nightmarejs. Phantomjs is based on WebKit which has been lagging behind other rendering engines in recent years. Furthermore Phantomjs is slow to adopt new versions of WebKit. And finally, Phantomjs has a messy API, while Nightmarejs has a cleaner API which makes it easier to create tests.
   
 Well, that is it for today. Happy coding y'all.
 

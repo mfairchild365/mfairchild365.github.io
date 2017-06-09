@@ -36,5 +36,5 @@ Well, as I said, it is just a simple script that searches some common image host
 
 * It is a PHP script
 * It uses the [DiscordPHP](https://github.com/teamreflex/DiscordPHP) library
-* Because the discord API is websocket based, a constant connection needs to be established between the bot and discord. This means that the script has to run as a daemon, which isn't very common for PHP. To accomplish this, I used the [pm2 process manager](http://pm2.keymetrics.io/).
+* Because the discord API is WebSocket based, a constant connection needs to be established between the bot and discord. This means that the script has to run as a daemon, which isn't very common for PHP. To accomplish this, I used the [pm2 process manager](http://pm2.keymetrics.io/).
 * See the [bot's GitHUb repository](https://github.com/mfairchild365/discord-image-bot) for more details.
