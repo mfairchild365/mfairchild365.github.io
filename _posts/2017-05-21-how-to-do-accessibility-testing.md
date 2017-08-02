@@ -39,7 +39,7 @@ This is a partial list of what automated testing can't help you with:
 * Is keyboard functionality actually implemented for custom controls?
 * Do screen readers actually read this as expected (as opposed to what the standards say)?
 
-To drive the point home. I have found my projects passing automated testing with flying colors, only to discover later that a screen reader choked on all of it.
+To drive the point home. I have found my projects passing automated testing with flying colors, only to discover later that a screen reader choked on all of it. In fact, I've worked on sites that get a 100% on automated testing, but had an off-screen keyboard trap as the first element on every page, rendering the entire site unusable.
 
 So, how do you do manual testing? Well, you can use automated testing to inform your manual tests (review items flagged as notices or for manual review). But really, the best thing you can do is actually test your code in a real screen reader. You wouldn't publish content without testing it in a real browser first. So why would you publish content without testing it a real screen reader first?
 
