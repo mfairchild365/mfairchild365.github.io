@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Video.js Example Embed</title>
+
+    <link href="https://vjs.zencdn.net/6.4.0/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/6.4.0/video.js"></script>
+    <style>
+        html, body {
+            margin: 0px;
+            height: 100%;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+<video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto"
+       data-setup='{"videoWidth": "100%", "videoHeight": "100%", "controls": true, "fluid": true}'>
+    <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'>
+    <track src="sample.vtt" kind="captions" srclang="en">
+</video>
+
+<script>
+</script>
+
+</body>
+</html>
