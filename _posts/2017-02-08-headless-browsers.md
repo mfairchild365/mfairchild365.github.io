@@ -33,6 +33,12 @@ comments: true
 >
 > -- Me, with liberal use of the poem The Raven by Edgar Allan Poe
 
+## Update 2018
+
+Google released [puppeteer](https://github.com/GoogleChrome/puppeteer) after I first wrote this. Puppeteer is a headless version of Google Chrome, which basically renders Nightmarejs useless. I now recomend puppeteer over Nightmarejs for most tasks.
+
+## Original post
+
 Headless browsers have a bit of a storied and spooky history. Okay, not really. The developers just love to name them spooky things because they are "headless".
 
 What is a headless browser you ask? Well, a headless browser is a web browser that does not have any UI, it just runs as a background process. How could a headless browser ever be useful? Well, there are many reasons. Personally, I use them for automated testing (accessibility and other things).
@@ -72,6 +78,7 @@ There are quite a few headless browsers out there, each of which have their own 
 | Browser | Rendering Engine | API Language |
 | --- | --- | --- |
 | [Phantomjs](http://phantomjs.org/) | WebKit (Safari) | JavaScript |
+| [puppeteer](https://github.com/GoogleChrome/puppeteer) | Chrome | Node.js |
 | [Nightmarejs](https://github.com/segmentio/nightmare) | Chromium via Electron (Chrome) | Node.js |
 | [Slimerjs](https://slimerjs.org/) | Gecko (Firefox) | JavaScript |
 | [Ghost.py](http://jeanphix.me/Ghost.py/) | WebKit (Safari) | Python |
