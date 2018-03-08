@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Safari/VoiceOver Anchor link / focus bug</title>
+    <style>
+       .sr-only {
+           position: absolute!important;
+           height: 1px!important;
+           width: 1px!important;
+           border: 0!important;
+           clip: rect(1px,1px,1px,1px)!important;
+           overflow: hidden!important;
+           word-wrap: normal!important;
+       }
+    </style>
+</head>
+<body>
+<header class="header">
+
+</header>
+
+<div>
+    <h1>Safari/Voiceover Anchor Link / Focus Bug</h1>
+    
+    <p>This page describes an anchor link bug (including skipnav links) on iOS while using VoiceOver.</p>
+    <p>Note: There is JavaScript on this page to fix a <em>different</em> safari/voiceover bug that was preventing focus being sent to a target with content.</p>
+
+    <h2>Example links</h2>
+    <ol>
+        <li><a href="#target-no-content">Go to target with no content</a></li>
+        <li><a href="#target-with-content">Go to target with content</a></li>
+        <li><a href="#target-with-no-direct-content">Go to target with first child of screen-reader-only content</a></li>
+    </ol>
+    
+    <h2>Steps to reproduce</h2>
+    <ol>
+        <li>Turn VoiceOver On</li>
+        <li>Go to this page using safari on iOS</li>
+        <li>Click the 'Go to target with no content' link</li>
+        <li>Click the 'Go to target with content' link</li>
+        <li>Go to target with first child of screen-reader-only content</li>
+    </ol>
+
+    <h2>Expected results</h2>
+    <ol>
+        <li>The 'Go to target with no content' link moves focus to the target</li>
+        <li>The 'Go to target with content' link moves focus to the target</li>
+        <li>the 'Go to target with first child of screen-reader-only content' link moves focus to the target</li>
+    </ol>
+
+    <h2>Actual results</h2>
+    <ol>
+        <li>The 'Go to target with no content' link DOES NOT move focus to the target (success)</li>
+        <li>The 'Go to target with content' link moves focus to the target (fail)</li>
+        <li>the 'Go to target with first child of screen-reader-only content' link DOES NOT move focus to the target (fail)</li>
+    </ol>
+    
+    <h2>Example content</h2>
+
+    <a href="http://www.google.com">example link before target</a><br />
+
+    <div style="">
+        This is some placeholder content so that the page has to scroll to reach the target.
+    </div>
+
+    <div id="target-no-content" tabindex="-1"></div>
+    <div id="target-with-content" tabindex="-1">target with content</div>
+    <div id="target-with-no-direct-content" tabindex="-1">
+        <div class="sr-only">test</div>
+        <div>target with no direct content</div>
+    </div>
+
+    <a href="http://www.google.com">example after target</a>
+</div>
+
+
+<script>
+    'use strict';
+
+    //This is some js to try to fix the problem... but it doesn't help.
+    //it DOES fix a different safari/voiceover bug that was preventing a target that has content from being focused.
+    var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (is_safari) {
+        //override skip nav and force focus on target
+        document.querySelector('body').addEventListener("click", function (e) {
+            //element.closest() is supported in safari 9.0. Not supported in IE9, but we are already targeting safari.
+            //if we use this on other browsers, we will likely need a polyfill for .closest()
+            var target = e.target.closest('a');
+            if (target.matches('a[href^="#"]')) {
+                e.preventDefault();
+                var selector = '#' + target.getAttribute('href').slice(1);
+                document.querySelector(selector).focus();
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
