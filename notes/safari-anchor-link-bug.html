@@ -25,6 +25,7 @@
     
     <p>This page describes an anchor link bug (including skipnav links) on iOS while using VoiceOver.</p>
     <p>Note: There is JavaScript on this page to fix a <em>different</em> safari/voiceover bug that was preventing focus being sent to a target with content.</p>
+    <p>Note: View page source to see the code</p>
 
     <h2>Example links</h2>
     <ol>
@@ -68,7 +69,7 @@
     <div id="target-with-content" tabindex="-1">target with content</div>
     <div id="target-with-no-direct-content" tabindex="-1">
         <div class="sr-only">test</div>
-        <div>target with no direct content</div>
+        <div>target with first child of screen reader-only content, followed by visual content. The screen reader-only content uses a .sr-only css pattern to visually hide the content but keep it available to screen readers.</div>
     </div>
 
     <a href="http://www.google.com">example after target</a>
