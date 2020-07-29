@@ -1,5 +1,6 @@
 ---
 layout: page
+hidden: true
 title: Web Accessibility Consulting
 ---
 
