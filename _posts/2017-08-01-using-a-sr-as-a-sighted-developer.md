@@ -1,5 +1,6 @@
 ---
 layout: post
+hidden: true
 title: "Using a screen reader as a sighted developer"
 description: ""
 comments: true

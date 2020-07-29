@@ -1,5 +1,6 @@
 ---
 layout: post
+hidden: true
 title: "Spooky Browsers"
 description: ""
 comments: true

@@ -1,5 +1,6 @@
 ---
 layout: post
+hidden: true
 title: "Troubles with Travis-ci, pa11y and Pyrus"
 description: ""
 category: 

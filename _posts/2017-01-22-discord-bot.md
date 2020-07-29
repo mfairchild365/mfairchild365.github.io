@@ -1,5 +1,6 @@
 ---
 layout: post
+hidden: true
 title: "The Fairchild Image Factory (discord bot)"
 description: ""
 comments: true

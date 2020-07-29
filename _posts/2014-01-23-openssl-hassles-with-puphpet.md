@@ -1,5 +1,6 @@
 ---
 layout: post
+hidden: true
 title: "Openssl hassles with PuPHPet"
 description: ""
 category: 

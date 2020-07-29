@@ -1,5 +1,6 @@
 ---
 layout: post
+hidden: true
 title: "Why should you care about accessibility?"
 description: ""
 comments: true

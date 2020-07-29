@@ -1,5 +1,6 @@
 ---
 layout: post
+hidden: true
 title: "The Who, When, and What of accessibility testing"
 description: ""
 comments: true

@@ -1,5 +1,6 @@
 ---
 layout: post
+hidden: true
 title: "Question about web accessibility CSS standards, documentation, and expectations"
 description: ""
 comments: true

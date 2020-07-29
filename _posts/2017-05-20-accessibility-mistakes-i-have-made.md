@@ -1,5 +1,6 @@
 ---
 layout: post
+hidden: true
 title: "Yes, I make accessibility mistakes too"
 description: ""
 comments: true

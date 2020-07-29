@@ -1,5 +1,6 @@
 ---
 layout: post
+hidden: true
 title: "How should you do accessibility testing?"
 description: ""
 comments: true
