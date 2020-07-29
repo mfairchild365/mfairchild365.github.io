@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Focus management woes (replace active element) (v2 experiment) </title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<h1>Focus management problems (active element is removed before redirecting focus) - hacky fixes and theories</h1>
+
+
+<p>Instructions: using a screen reader, navigate to the button in each example and activate it. It will be replaced with a message. Is that message announced when it is focused?</p>
+
+<h2>Example 1: theory: change the DOM enough so that the browser doesn't recover to the element that is getting focus</h2>
+<div>
+<button id="example1">Load</button>
+</div>
+
+<h2>Example 2: set focus after element loads</h2>
+<div>
+<button id="example2">Load</button>
+</div>
+
+<h2>Example 3: force reset focus (send to empty div and then back)</h2>
+<div>
+<button id="example3">Load</button>
+</div>
+
+<h2>Example 4: force reset focus (send to empty div and then back) - after a slight delay</h2>
+<div>
+<button id="example4">Load</button>
+</div>
+
+<h2>Example 5: visually hide the trigger, then send focus to the new content, then remove the trigger</h2>
+<div>
+<button id="example5">Load</button>
+</div>
+
+<h2>results</h2>
+
+<ul>
+  <li>NVDA 2020.1 + Chrome 84:
+    <ul>
+      <li>example 1: pass (loading section)</li>
+      <li>example 2: fail (silence)</li>
+      <li>example 3: fail (silence)</li>
+      <li>example 4: pass (please wait, loading)</li>
+      <li>example 5: fail (silence)</li>
+    </ul>
+  </li>
+  <li>NVDA 2020.1 + Firefox 77:
+    <ul>
+      <li>example 1: pass (loading)</li>
+      <li>example 2: fail (text frame)</li>
+      <li>example 3: fail (text frame)</li>
+      <li>example 4: pass (please wait, loading)</li>
+      <li>example 5: fail (silence)</li>
+    </ul>
+  </li>
+  <li>JAWS 2020 + Chrome 84:
+     <ul>
+      <li>example 1: fail (load, heading level 2)</li>
+      <li>example 2: pass (h1 was announced, loading)</li>
+      <li>example 3: pass (loading)</li>
+       <li>example 4: pass (loading)</li>
+       <li>example 5: pass (loading)</li>
+    </ul>
+  </li>
+  <li>JAWS 2020 + Firefox 77:
+    <ul>
+      <li>example 1: pass (loading)</li>
+      <li>example 2: pass (h1 was announced, loading)</li>
+      <li>example 3: pass (loading)</li>
+      <li>example 4: pass (loading)</li>
+      <li>example 4: pass (loading)</li>
+    </ul>
+  </li>
+  <li>VO MacOS 10.15.5 + Safari 13.1.1: 
+    <ul>
+      <li>example 1: pass (loading, group)</li>
+      <li>example 2: pass (loading, group)</li>
+      <li>example 3: pass (loading, group)</li>
+      <li>example 4: pass (loading, group)</li>
+      <li>example 5: pass (loading, group)</li>
+    </ul>
+  </li>
+  <li>VO iOS 13.5.1 + Safari:
+    <ul>
+      <li>example 1: pass (loading)</li>
+      <li>example 2: pass (theories, loading)</li>
+      <li>example 3: pass (loading)</li>
+      <li>example 4: pass (loading)</li>
+      <li>example 5: pass (loading)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>Conclusions</h2>
+<ul>
+  <li>Example 4 was the only one that consistently passed.</li>
+  <li>It seems that the the delay is needed so that everything in the a11y stack has a chance to catch up and notice what is changing.</li>
+  <li>The fact that a delay is needed makes this fragile. How much of a delay is needed? Do we need a longer delay on slower machines?</li>
+</ul>
+
+
+<div tabindex="-1" id="focus-fix" class="visually-hidden">please wait</div>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
