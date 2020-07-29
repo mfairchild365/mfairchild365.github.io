@@ -41,7 +41,7 @@ button3.addEventListener('click', e => {
     container.appendChild(message);
     message.focus();
     focusFix.style.display = 'none'; // remove from reading order
-  }, 100);
+  }, 200);
 })
 
 let button4 = document.querySelector('#example4')
@@ -61,8 +61,8 @@ button4.addEventListener('click', e => {
     setTimeout(function() {
       message.focus();
       focusFix.style.display = 'none'; // remove from reading order
-    }, 100);
-  }, 100);
+    }, 200);
+  }, 200);
 })
 
 let button5 = document.querySelector('#example5')
