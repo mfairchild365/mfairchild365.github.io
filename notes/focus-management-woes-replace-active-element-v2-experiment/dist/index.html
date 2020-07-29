@@ -23,12 +23,12 @@
 <button id="example2">Load</button>
 </div>
 
-<h2>Example 3: force reset focus (send to empty div and then back)</h2>
+<h2>Example 3: force reset focus (send to sr-only div and then back)</h2>
 <div>
 <button id="example3">Load</button>
 </div>
 
-<h2>Example 4: force reset focus (send to empty div and then back) - after a slight delay</h2>
+<h2>Example 4: force reset focus (send to sr-only div and then back) - after a slight delay</h2>
 <div>
 <button id="example4">Load</button>
 </div>
@@ -50,7 +50,7 @@
       <li>example 5: fail (silence)</li>
     </ul>
   </li>
-  <li>NVDA 2020.1 + Firefox 77:
+  <li>NVDA 2020.1 + Firefox 78:
     <ul>
       <li>example 1: pass (loading)</li>
       <li>example 2: fail (text frame)</li>
@@ -64,20 +64,20 @@
       <li>example 1: fail (load, heading level 2)</li>
       <li>example 2: pass (h1 was announced, loading)</li>
       <li>example 3: pass (loading)</li>
-       <li>example 4: pass (loading)</li>
+       <li>example 4: pass (please wait, loading)</li>
        <li>example 5: pass (loading)</li>
     </ul>
   </li>
-  <li>JAWS 2020 + Firefox 77:
+  <li>JAWS 2020 + Firefox 78:
     <ul>
       <li>example 1: pass (loading)</li>
       <li>example 2: pass (h1 was announced, loading)</li>
       <li>example 3: pass (loading)</li>
-      <li>example 4: pass (loading)</li>
+      <li>example 4: pass (please wait, frame, loading)</li>
       <li>example 4: pass (loading)</li>
     </ul>
   </li>
-  <li>VO MacOS 10.15.5 + Safari 13.1.1: 
+  <li>VO MacOS 10.15.6 + Safari 13.1.1: 
     <ul>
       <li>example 1: pass (loading, group)</li>
       <li>example 2: pass (loading, group)</li>
@@ -86,7 +86,7 @@
       <li>example 5: pass (loading, group)</li>
     </ul>
   </li>
-  <li>VO iOS 13.5.1 + Safari:
+  <li>VO iOS 13.6 + Safari:
     <ul>
       <li>example 1: pass (loading)</li>
       <li>example 2: pass (theories, loading)</li>
@@ -102,6 +102,7 @@
   <li>Example 4 was the only one that consistently passed.</li>
   <li>It seems that the the delay is needed so that everything in the a11y stack has a chance to catch up and notice what is changing.</li>
   <li>The fact that a delay is needed makes this fragile. How much of a delay is needed? Do we need a longer delay on slower machines?</li>
+  <li>In theory, it could be possible to make example 4 a function. For example when you call focusWithDelay('#target', callback), the function could inject the 'please wait' sr-only div, send focus to it, perform the callback (remove and replace content), then send focus to the desired selector, then remove the 'please wait' sr-only div, all while handling appropriate delays.</li>
 </ul>
 
 

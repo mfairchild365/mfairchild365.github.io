@@ -7,3 +7,8 @@
     clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap; /* added line */
 }
+
+#focus-fix {
+  /* hide by default so that it is not in the reading order when it is not needed */
+  display: none;
+}

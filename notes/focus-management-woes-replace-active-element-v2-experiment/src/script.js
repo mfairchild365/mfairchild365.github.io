@@ -30,13 +30,18 @@ button3.addEventListener('click', e => {
   console.log(e);
   let focusFix = document.querySelector('#focus-fix');
   let message = document.createElement('span');
-  message.innerText = 'loading'
-  message.setAttribute('tabindex', '-1');
-  let container = e.target.parentElement;
-  container.innerHTML = '';
-  container.appendChild(message);
-  focusFix.focus();
-  message.focus();
+  focusFix.style.display = 'block'; // put back in reading order
+  setTimeout(function() {
+    // wait a bit for NVDA to notice the style change
+    focusFix.focus();
+    message.innerText = 'loading'
+    message.setAttribute('tabindex', '-1');
+    let container = e.target.parentElement;
+    container.innerHTML = '';
+    container.appendChild(message);
+    message.focus();
+    focusFix.style.display = 'none'; // remove from reading order
+  }, 100);
 })
 
 let button4 = document.querySelector('#example4')
@@ -44,15 +49,20 @@ button4.addEventListener('click', e => {
   console.log(e);
   let focusFix = document.querySelector('#focus-fix');
   let message = document.createElement('span');
-  message.innerText = 'loading'
-  message.setAttribute('tabindex', '-1');
-  let container = e.target.parentElement;
-  container.innerHTML = '';
-  container.appendChild(message);
-  focusFix.focus();
+  focusFix.style.display = 'block'; // put back in reading order
   setTimeout(function() {
-    message.focus();
-  }, 10);
+    // wait a bit for NVDA to notice the style change
+    focusFix.focus();
+    message.innerText = 'loading'
+    message.setAttribute('tabindex', '-1');
+    let container = e.target.parentElement;
+    container.innerHTML = '';
+    container.appendChild(message);
+    setTimeout(function() {
+      message.focus();
+      focusFix.style.display = 'none'; // remove from reading order
+    }, 100);
+  }, 100);
 })
 
 let button5 = document.querySelector('#example5')
